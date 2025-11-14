@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import { Client, GatewayIntentBits } from 'discord.js';
+import eventHandler from './handlers/eventHandler.js';
+import commandHandler from './handlers/commandHandler.js';
 
 const client = new Client({
     intents: [
@@ -9,8 +11,7 @@ const client = new Client({
     ],
 });
 
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-});
+commandHandler(client);
+eventHandler(client);
 
 client.login(process.env.DISCORD_TOKEN);
