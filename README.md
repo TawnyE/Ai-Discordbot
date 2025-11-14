@@ -15,6 +15,17 @@ This is a powerful and feature-rich Discord bot built with Node.js and discord.j
 - **discord.js v14+:** The bot utilizes the latest version of discord.js, a powerful Node.js module for interacting with the Discord API.
 - **dotenv:** Environment variables are managed using the `dotenv` package, which loads them from a `.env` file.
 
+## Project Structure
+
+The bot's architecture is designed to be modular and scalable. Here's an overview of the key directories:
+
+- `src/commands`: Contains all the slash command files, organized into subdirectories by category.
+- `src/events`: Contains files that handle various Discord client events (e.g., `ready`, `interactionCreate`).
+- `src/handlers`: Includes the core handlers for dynamically loading commands and events.
+- `src/scripts`: Contains utility scripts, such as the command deployment script.
+- `src/utils`: For any reusable utility functions.
+- `src/config`: For storing configuration files.
+
 ## Getting Started
 
 ### Prerequisites
@@ -49,6 +60,16 @@ This is a powerful and feature-rich Discord bot built with Node.js and discord.j
    - `CLIENT_ID`: Your bot's client ID.
    - `GUILD_ID`: The ID of the server you'll be using for testing.
 
+### Deploying Slash Commands
+
+Before running the bot, you need to register the slash commands with Discord's API. Run the following command to do so:
+
+```bash
+node src/scripts/deploy-commands.js
+```
+
+You only need to run this script when you add or modify slash commands.
+
 ### Running the Bot
 
 To start the bot, run the following command:
@@ -56,3 +77,9 @@ To start the bot, run the following command:
 ```bash
 node src/index.js
 ```
+
+## Features
+
+### Utility
+
+- `/ping`: Checks the bot's latency and replies with "Pong!".
